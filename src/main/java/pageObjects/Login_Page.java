@@ -7,13 +7,13 @@ import org.openqa.selenium.support.FindBy;
 public class Login_Page extends Base_Page {
 
     private @FindBy(xpath = "//input[@id='text']")
-    WebElement user;
+    WebElement username_TextBox;
 
     private @FindBy(id = "password")
-    WebElement pwd;
+    WebElement password_TextBox;
 
     private @FindBy(xpath = "//button[@id='login-button']")
-    WebElement login;
+    WebElement login_Button;
 
     public Login_Page() {
         super();
@@ -24,15 +24,15 @@ public class Login_Page extends Base_Page {
     }
 
     public void setUsername(String username) {
-        sendKeys(user, username);
+        sendKeys(username_TextBox, username);
     }
 
     public void setPassword(String password) {
-        sendKeys(pwd, password);
+        sendKeys(password_TextBox, password);
     }
 
     public void clickLogin() {
-        click(login);
+        click(login_Button);
     }
 
     public void validateAlertMessage(String message) {
