@@ -1,5 +1,7 @@
 package driver;
 
+import Utils.ConfigReader;
+import Utils.Global_Variables;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,7 +29,7 @@ public class DriverFactory {
 
         //   String browserType = "firefox";
 
-        switch (getBrowser()) {
+        switch (Global_Variables.BROWSER) {
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/driver/drivers/chromedriver");
                 ChromeOptions chromeOptions = new ChromeOptions();
@@ -43,21 +45,6 @@ public class DriverFactory {
         }
         driver.manage().window().maximize();
         return driver;
-    }
-
-
-    private static String getBrowser() {
-        String browserType = null;
-        try {
-            Properties properties = new Properties();
-            FileInputStream fis = new FileInputStream(System.getProperty("user.dir") +
-                    "/src/main/resources/config.properties");
-            properties.load(fis);
-            browserType = properties.getProperty("browser").toLowerCase().trim();
-        } catch (IOException ioException) {
-            System.out.println(ioException.getMessage());
-        }
-        return browserType;
     }
 
 

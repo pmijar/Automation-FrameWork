@@ -9,17 +9,17 @@ public class ContactUs_Page extends Base_Page {
 
     private static final String expectedSubmitMessage = "Thank You for your Message!";
     private @FindBy(xpath = "//input[@name='first_name']")
-    WebElement firstName;
+    WebElement firstName_TextBox;
     private @FindBy(xpath = "//input[@name='last_name']")
-    WebElement lastName;
+    WebElement lastName_TextBox;
     private @FindBy(xpath = "//input[@name='email']")
-    WebElement email;
+    WebElement email_TextBox;
     private @FindBy(xpath = "//textarea[@name='message']")
-    WebElement comments;
+    WebElement comments_TextBox;
     private @FindBy(xpath = "//input[@value='SUBMIT']")
-    WebElement submit;
+    WebElement submit_Button;
     private @FindBy(xpath = "//div[@id='contact_reply']/h1")
-    WebElement submitMessage;
+    WebElement submitMessage_TextElement;
 
     public ContactUs_Page() {
         super();
@@ -30,27 +30,27 @@ public class ContactUs_Page extends Base_Page {
     }
 
     public void setFirstname(String firstname) {
-        sendKeys(this.firstName, firstname);
+        sendKeys(this.firstName_TextBox, firstname);
     }
 
     public void setLastname(String lastname) {
-        sendKeys(this.lastName, lastname);
+        sendKeys(this.lastName_TextBox, lastname);
     }
 
-    public void setEmail(String email) {
-        sendKeys(this.email, email);
+    public void setEmail(String email_TextBox) {
+        sendKeys(this.email_TextBox, email_TextBox);
     }
 
     public void setComments(String message) {
-        sendKeys(this.comments, message);
+        sendKeys(this.comments_TextBox, message);
     }
 
     public void submitInfo() {
-        click(this.submit);
+        click(this.submit_Button);
     }
 
     public void verifySubmitMessage() {
-        Assert.assertEquals(getText(submitMessage), expectedSubmitMessage);
+        Assert.assertEquals(getText(submitMessage_TextElement), expectedSubmitMessage);
     }
 
 

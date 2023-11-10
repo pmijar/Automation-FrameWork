@@ -13,7 +13,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-public class Base_Page {
+public abstract class Base_Page {
 
     public Base_Page() {
         PageFactory.initElements(getDriver(), this);
